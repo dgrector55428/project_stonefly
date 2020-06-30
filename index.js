@@ -54,9 +54,11 @@ const listFiles = async () => {
     reportStatus("Retrieving file list...");
     let iter = containerClient.listBlobsFlat();
     let blobItem = await iter.next();
+
     while (!blobItem.done) {
+      var items = blobItem.value.name;
       fileList.size += 1;
-      fileList.innerHTML += `<option>${blobItem.value.name}</option>`;
+      fileList.innerHTML += `<option>${items}</option>`;
       blobItem = await iter.next();
     }
     if (fileList.size > 0) {
@@ -88,28 +90,9 @@ const uploadFiles = async () => {
     reportStatus("File(s) uploaded");
     listFiles();
   } catch (error) {
-    reportStatus(error.message);
+    reportStatus("An error occured", error.message);
   }
 };
 
 selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
-
-const deleteFiles = async () => {
-  try {
-    if (fileList.selectedOptions.length > 0) {
-      reportStatus("Deleting files...");
-      for (const option of fileList.selectedOptions) {
-        await containerClient.deleteBlob(option.text);
-      }
-      reportStatus("Done.");
-      listFiles();
-    } else {
-      reportStatus("No files selected.");
-    }
-  } catch (error) {
-    reportStatus(error.message);
-  }
-};
-
-// deleteButton.addEventListener("click", deleteFiles);
