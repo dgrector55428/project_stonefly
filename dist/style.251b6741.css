@@ -1,9 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  /* background: rgb(77, 76, 76); */
-}
-
 #uploader {
   text-align: center;
   border: 2px solid grey;
@@ -31,16 +25,6 @@ body {
 
 #btnWrapper {
   text-align: left;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Optional */
-}
-
-#formSubmitBtn {
-  margin-left: 5px;
 }
 
 #wordpress {
