@@ -1,5 +1,6 @@
 const { BlobServiceClient } = require("@azure/storage-blob");
 const $ = require("./vendors/jquery/jquery-3.5.1");
+require("dotenv").config();
 
 $(document).ready(function () {
   $("#feedback").hide();
