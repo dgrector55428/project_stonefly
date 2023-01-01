@@ -16,7 +16,7 @@
   "dependencies": {
     "@azure/storage-blob": "^12.1.2",
     "jquery": "^3.5.1",
-    "parcel": "^1.12.4"
+    "parcel": "^2.8.2"
   },
   "devDependencies": {
     "cssnano": "^4.1.10"
